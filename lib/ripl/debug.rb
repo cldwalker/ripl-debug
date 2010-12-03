@@ -1,13 +1,12 @@
-require 'ruby-debug'
-
 module Ripl
   module Debug
     def before_loop
       super
+      require 'ruby-debug'
       Debugger.run_init_script(StringIO.new)
     end
 
-    def eval_input(input)
+    def loop_eval(input)
       if config[:debug]
         # move local variables outside of with_post_mortem
         input = (set_var_string = input.to_s[/^\s*\w+\s*=\s+/]) ?
