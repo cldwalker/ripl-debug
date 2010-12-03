@@ -1,5 +1,9 @@
+require 'ripl'
+
 module Ripl
   module Debug
+    VERSION = '0.1.0'
+
     def before_loop
       super
       require 'ruby-debug'
