@@ -1,0 +1,21 @@
+== Description
+This ripl plugin automatically starts the debugger whenever an evaled input throws an exception.
+The debugger is started at the source of the exception.
+
+== Install
+Install the gem with:
+
+    sudo gem install ripl-debug
+
+== Usage
+
+To debug a suspect environment:
+
+    $ ripl debug
+
+This plugin can be turned off in the console with:
+
+    >> Ripl.config[:debug] = false
+
+== Limitations
+* Doesn't currently work for multi-line evaluation
