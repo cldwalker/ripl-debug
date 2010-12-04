@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = "gabriel.horner@gmail.com"
   s.homepage    = "http://github.com/cldwalker/ripl-debug"
   s.summary = "A ripl plugin that automatically passes a failed eval to ruby-debug"
-  s.description =  ""
+  s.description =  "This ripl plugin automatically starts the debugger whenever an evaled input throws an exception. The debugger is started at the source of the exception."
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project = 'tagaholic'
   s.executables = ['ripl-debug']
