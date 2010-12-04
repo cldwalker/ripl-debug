@@ -9,11 +9,11 @@ Install the gem with:
 
 == Usage
 
-To debug a suspect environment:
+To debug some suspect code
 
-    $ ripl debug
+    $ ripl debug -rsome/buggy/code
 
-This plugin can be turned off in the console with:
+This plugin can be turned off in the console at any time with:
 
     >> Ripl.config[:debug] = false
 
