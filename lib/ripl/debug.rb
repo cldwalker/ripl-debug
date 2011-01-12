@@ -10,8 +10,18 @@ module Ripl
       Debugger.run_init_script(StringIO.new)
     end
 
+    def _valid_syntax?(input)
+      eval(input, @binding, "ripl-debug syntax check", @line)
+    rescue SyntaxError
+      false
+    rescue Exception
+      true
+    else
+      true
+    end
+
     def loop_eval(input)
-      if config[:debug]
+      if config[:debug] && _valid_syntax?(input)
         # move local variables outside of with_post_mortem
         input = (set_var_string = input.to_s[/^\s*\w+\s*=\s+/]) ?
           "#{set_var_string} with_post_mortem { #{input.sub(set_var_string, '')} }" :
@@ -35,6 +45,6 @@ module Ripl
   end
 end
 
-Ripl::Shell.send :include, Ripl::Debug
-Ripl::Commands.send :include, Ripl::Debug::Commands
+Ripl::Shell.include Ripl::Debug
+Ripl::Commands.include Ripl::Debug::Commands
 Ripl.config[:debug] = true
