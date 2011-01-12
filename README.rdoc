@@ -5,7 +5,7 @@ The debugger is started at the source of the exception.
 == Install
 Install the gem with:
 
-    sudo gem install ripl-debug
+    gem install ripl-debug
 
 == Usage
 
@@ -16,6 +16,3 @@ To debug some suspect code
 This plugin can be turned off in the console at any time with:
 
     >> Ripl.config[:debug] = false
-
-== Limitations
-* Doesn't currently work for multi-line evaluation

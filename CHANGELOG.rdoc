@@ -1,2 +1,5 @@
+== 0.1.1
+* Fix to work with multi-line
+
 == 0.1.0
 * Initial release
