@@ -14,7 +14,6 @@ Gem::Specification.new do |s|
   s.rubyforge_project = 'tagaholic'
   s.executables = ['ripl-debug']
   s.add_dependency 'ripl', '>= 0.3.1'
-  s.add_dependency 'ruby-debug'
   s.files = Dir.glob(%w[{lib,test}/**/*.rb bin/* [A-Z]*.{txt,rdoc} ext/**/*.{rb,c} **/deps.rip]) + %w{Rakefile .gemspec}
   s.extra_rdoc_files = ["README.rdoc", "LICENSE.txt"]
   s.license = 'MIT'

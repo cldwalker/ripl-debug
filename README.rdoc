@@ -3,9 +3,13 @@ This ripl plugin automatically starts the debugger whenever an evaled input thro
 The debugger is started at the source of the exception.
 
 == Install
-Install the gem with:
+If on ruby 1.8, install the gem with:
 
-    gem install ripl-debug
+    gem install ripl-debug ruby-debug
+
+If on ruby 1.9, install the gem with:
+
+    gem install ripl-debug ruby-debug19
 
 == Usage
 
@@ -16,3 +20,8 @@ To debug some suspect code
 This plugin can be turned off in the console at any time with:
 
     >> Ripl.config[:debug] = false
+
+== Limitations
+
+This gem doesn't have ruby-debug as a dependency since ruby-debug is split across two gems
+(ruby-debug and ruby-debug19), dependent on ruby versions. This gem will work with either one.
