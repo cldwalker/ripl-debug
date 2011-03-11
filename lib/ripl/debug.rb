@@ -10,8 +10,20 @@ module Ripl
       Debugger.run_init_script(StringIO.new)
     end
 
+    def _capture_stds(&block)
+      original_stdout, original_stderr = $stdout, $stderr
+      $stdout = fake = StringIO.new
+      $stderr = fake2 = StringIO.new
+      begin
+        yield
+      ensure
+        $stdout, $stderr = original_stdout, original_stderr
+      end
+      fake.string + fake2.string
+    end
+
     def _valid_syntax?(input)
-      eval(input, @binding, "ripl-debug syntax check", @line)
+      _capture_stds { eval(input, @binding, "ripl-debug syntax check", @line) }
     rescue SyntaxError
       false
     rescue Exception
