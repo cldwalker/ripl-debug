@@ -1,5 +1,6 @@
-== 0.1.2
+== 0.2.0
 * Fix double print bug by silencing syntax checking
+* Remove ruby-debug as a dependency
 
 == 0.1.1
 * Fix to work with multi-line
